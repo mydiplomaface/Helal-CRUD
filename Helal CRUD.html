@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css/all.min.css">
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <link rel="stylesheet" href="css/helal-crud.css">
+    <title>Local Students Database</title>
+</head>
+
+<body>
+
+    <div class="container">
+
+        <h1 id="top_header" class="top-title text-center mt-5 mb-4">Students Database</h1>
+        <div id="form_section" class="pt-3 bg-light">
+            <div class="row">
+
+
+                <div id="left" class="col-md-6">
+                    <div id="info_search" class=" mb-3 p-0">
+                        <div id="index_number" class="form-control py-2 mb-3">
+
+                            <!-- Total Students: <span id='real_number' class="badge bg-secondary">0</span> -->
+                        </div>
+                        <input id="search_box" onkeyup="searchStudent()" class="form-control py-2 mb-0" type="search"
+                            placeholder="Search..." type="search" value="">
+
+                    </div>
+
+                    <input id="input_name" class="form-control py-2 mb-3" type="text" value=""
+                        placeholder="Student Name:">
+                    <!-- <label for="input_name">Student Name:</label> -->
+                    <!-- </div> -->
+
+                    <!-- <div class="form-floating"> -->
+                    <input id="input_email" class="form-control py-2 mb-3" type="email" placeholder="Student Email:">
+
+                    <!-- <label for="input_name">Student Email:</label> -->
+                    <!-- </div> -->
+
+                    <!-- <div id="input_gender"
+                        class="d-flex justify-content-between align-items-center form-control py-2 mb-3">
+
+                        <p class="col-3 mb-0">Gender:</p>
+                        <div class="row col-9 justify-content-end">
+                            <div class="form-check col-6">
+                                <input class="form-check-input gender" type="radio" name="gender" id="gender-f">
+                                <label class="form-check-label" for="gender-f"> Female </label>
+                            </div>
+
+                            <div class="form-check col-5">
+                                <input class="form-check-input gender" type="radio" name="gender" id="gender-m">
+                                <label class="form-check-label" for="gender-m"> Male </label>
+                            </div>
+
+                        </div>
+                    </div> -->
+
+                    <!-- <div class=" d-flex justify-content-between mb-3">
+                        <button class="btn btn-success form-btn py-2">Add Student</button>
+                        <button class="btn btn-secondary form-btn py-2">Clear</button>
+                    </div> -->
+
+                </div>
+
+
+                <div id="right" class="col-md-6">
+
+                    <!-- <div id="input_gender"
+                        class="d-flex justify-content-between align-items-center form-control py-2 mb-3">
+
+                        <p class="col-3 mb-0">Gender:</p>
+                        <div class="row col-9 justify-content-end">
+                            <div class="form-check col-6">
+                                <input class="form-check-input gender" type="radio" name="gender" id="gender-f">
+                                <label class="form-check-label" for="gender-f"> Female </label>
+                            </div>
+
+                            <div class="form-check col-5">
+                                <input class="form-check-input gender" type="radio" name="gender" id="gender-m">
+                                <label class="form-check-label" for="gender-m"> Male </label>
+                            </div>
+
+                        </div>
+                    </div> -->
+
+
+                    <!-- <div class=" d-flex justify-content-between mb-3">
+
+                        <input id="input_phone" class="form-control form-btn py-2" type="text" placeholder="Phone:">
+
+                        <select id="input_course" class="form-select form-btn form-control py-2"
+                            aria-label="Default select example">
+                            <option selected class="text-center">Course</option>
+                            <option value="1">Python</option>
+                            <option value="2">Java</option>
+                            <option value="3">Angular</option>
+                            <option value="4">Kotlen</option>
+                            <option value="5">React</option>
+                            <option value="6">jQuery</option>
+                        </select>
+                    </div> -->
+
+                    <!-- <input class="form-control py-2 mb-3" type="email" placeholder="Student Email:"> -->
+                    <div class=" d-flex justify-content-between mb-3">
+
+                        <input id="input_phone" class="form-control form-btn py-2" type="number" placeholder="Phone:">
+
+                        <select id="input_course" class="form-select form-btn form-control py-2"
+                            aria-label="Default select example">
+                            <option selected disabled class="text-center">= Course =</option>
+                            <option value="Python">Python</option>
+                            <option value="Java">Java</option>
+                            <option value="Angular">Angular</option>
+                            <option value="Kotlen">Kotlen</option>
+                            <option value="React">React</option>
+                            <option value="jQuery">jQuery</option>
+                        </select>
+                    </div>
+
+                    <select id="input_instructor" class="form-select form-control py-2 mb-3"
+                        aria-label="Default select example" placeholder="4255">
+                        <option selected disabled class="text-center">= Instructor =</option>
+                        <option value="Eng. Ahmed Bahnasy">Eng. Ahmed Bahnasy</option>
+                        <option value="Eng. Heba Ahmed">Eng. Heba Ahmed</option>
+                        <option value="Eng. Merit Magdy">Eng. Merit Magdy</option>
+                        <option value="Eng. Nadia Taha">Eng. Nadia Taha</option>
+                        <option value="Eng. Shimaa Said">Eng. Shimaa Said</option>
+                    </select>
+
+                    <div class="d-flex justify-content-between mb-3">
+                        <button id="add_btn" onclick="addStudent()" class="btn btn-success form-btn py-2">Add
+                            Student</button>
+                        <button id="update_btm" onclick="updateStudent()" class="btn btn-info form-btn py-2"
+                            style="display: none;">Update Student</button>
+                        <button id="clear_btn" onclick="clearall()" class="btn btn-warning form-btn py-2">Clear</button>
+                    </div>
+
+                </div>
+                <!-- <button class="btn btn-success form-btn py-3">Add Student</button>
+                <button class="btn btn-warning form-btn py-3">Clear</button> -->
+
+            </div>
+
+        </div>
+
+        <!-- <br><br><br>
+
+        <div class="form-floating">
+            <input itemid="test_float" class="form-control form-floating" type="text" placeholder="name" id="uname" />
+            <label for="test_float">Invalid input</label>
+
+            <input type="button" value="submit" onclick="send2()" />
+        </div>
+
+        <br><br><br> -->
+
+        <div id="table_part" class="table-responsive  mt-4">
+            <table id="students-_table" class="table table-striped table-hover text-nowrap"
+                style="display: inline-table;">
+
+                <thead class="text-center">
+                    <th>index</th>
+                    <th>Name</th>
+                    <th>Email</th>
+                    <th>Phone</th>
+                    <th>Course</th>
+                    <th>Instructor</th>
+                    <th>Actions</th>
+                </thead>
+                <tbody id="table_content">
+
+                </tbody>
+
+            </table>
+        </div>
+
+        <script src="js/helal-crud.js"></script>
+</body>
+
+</html>
